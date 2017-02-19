@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import Property from './Property';
 
+import './PropertyList.css';
+
 class PropertyList extends Component {
   deleteProperty(id) {
     this.props.deleteProperty(id);
@@ -18,7 +20,7 @@ class PropertyList extends Component {
     );
 
     return (
-      <ul className="properties">
+      <ul className="properties__list">
         {properties}
       </ul>
     );

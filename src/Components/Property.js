@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './Property.css';
+
 class Property extends Component {
 
   constructor() {
@@ -21,23 +23,25 @@ class Property extends Component {
 
   render() {
     return (
-      <li className="property">
+      <li className="properties__item">
         {
           this.state.isEditing
           ?
-          <form>
+          <form className="properties__wrapper">
             <input type="text"
-                   value={this.props.title} />
+                   value={this.props.title}
+                   className="properties__name" />
             <input type="url"
-                   value={this.props.url} />
+                   value={this.props.url}
+                   className="properties__url" />
             <button type="submit">Okey Doke</button>
             <button type="button"
                     onClick={this.toggleIsEditing.bind(this, false)}>Cancel</button>
           </form>
           :
-          <div>
-            <h3>{this.props.title}</h3>
-            <h4>{this.props.url}</h4>
+          <div className="properties__wrapper">
+            <h3 className="properties__name">{this.props.title}</h3>
+            <h4 className="properties__url">{this.props.url}</h4>
             <button onClick={this.toggleIsEditing.bind(this, true)}>Edit</button>
             <button onClick={this.onDelete.bind(this)}>Delete</button>
           </div>

@@ -1,0 +1,45 @@
+.properties__item {
+  flex: 1 0 100%;
+  margin-bottom: 2rem;
+}
+
+.properties__wrapper {
+  background-color: #FFFFFF;
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 0.25rem;
+  color: rgba(0,0,0,0.7);
+}
+
+.properties__name {
+  font-size: 1.5rem;
+  padding: 0.25rem;
+  margin: 0 0 1rem;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+}
+
+.properties__url {
+  font-size: 1rem;
+  padding: 0.25rem;
+  margin: 0 0 1rem;
+  font-weight: normal;
+  display: block;
+  width: 100%;
+}
+
+@media (min-width: 500px) {
+  .properties__item {
+    flex: 1 1 50%;
+    max-width: 50%;
+  }
+
+  .properties__item:nth-child(odd) {
+    padding-right: 1rem;
+  }
+
+  .properties__item:nth-child(even) {
+    padding-left: 1rem;
+  }
+}
