@@ -48,10 +48,15 @@ class App extends Component {
 
     axInstance.post('/api/v1/listings', JSON.stringify(data))
       .then((response) => {
-        //
+        let properties = this.state.properties;
+        properties.push(response.data.data);
+
+        this.setState({
+          properties,
+        });
       })
       .catch((error) => {
-        //
+        console.log('Error posting the data', error);
       });
   }
 
