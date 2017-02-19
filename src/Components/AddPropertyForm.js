@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 
+/**
+ * @class A form for adding a new property
+ */
 class AddPropertyForm extends Component {
+  /**
+   * Form submit handler
+   * @param  {event} evt
+   */
   onSubmit = (evt) => {
     evt.preventDefault();
     this.props.onSubmit(this.name.value, this.url.value);

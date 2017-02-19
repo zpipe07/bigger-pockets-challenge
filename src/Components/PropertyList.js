@@ -2,7 +2,6 @@ import React from 'react';
 
 import Property from './Property';
 
-// const GifList = props => {
 const PropertyList = (props) => {
   const properties = props.data.map((property) => {
       return <Property title={property.attributes.title}
@@ -17,5 +16,16 @@ const PropertyList = (props) => {
     </ul>
   );
 }
+
+PropertyList.propTypes = {
+  data: React.PropTypes.arrayOf(React.PropTypes.shape({
+    id: React.PropTypes.string,
+    type: React.PropTypes.string,
+    attributes: React.PropTypes.shape({
+      title: React.PropTypes.string,
+      url: React.PropTypes.string,
+    }),
+  })),
+};
 
 export default PropertyList;

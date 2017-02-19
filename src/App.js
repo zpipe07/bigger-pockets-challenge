@@ -36,6 +36,11 @@ class App extends Component {
       });
   }
 
+  /**
+   * Make POST request to API
+   * @param {string} title - property name
+   * @param {string} url   - property URL
+   */
   postNewProperty = (title, url) => {
     const data = {
       data: {
@@ -72,9 +77,3 @@ class App extends Component {
 }
 
 export default App;
-
-// App
-//  AddPropertyForm
-//  PropertyList
-//    Property
-//      state: { isEditing: false }
