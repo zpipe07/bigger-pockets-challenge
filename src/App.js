@@ -65,12 +65,28 @@ class App extends Component {
       });
   }
 
+  deleteProperty = (id) => {
+    axiosInstance.delete(`/api/v1/listings/${id}`)
+      .then((response) => {
+        let properties = this.state.properties.filter((property) => {
+          return property.id !== id;
+        });
+        this.setState({
+          properties,
+        });
+      })
+      .catch((error) => {
+        console.log('Error deleting property', error);
+      });
+  }
+
   render() {
     return (
       <div className="app">
         <h1 className="app__title">Listings</h1>
         <AddPropertyForm onSubmit={this.postNewProperty} />
-        <PropertyList data={this.state.properties} />
+        <PropertyList data={this.state.properties}
+                      deleteProperty={this.deleteProperty} />
       </div>
     );
   }

@@ -1,20 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import Property from './Property';
 
-const PropertyList = (props) => {
-  const properties = props.data.map((property) => {
-      return <Property title={property.attributes.title}
-                       url={property.attributes.url}
-                       key={property.id} />;
-    }
-  );
+class PropertyList extends Component {
+  deleteProperty(id) {
+    this.props.deleteProperty(id);
+  }
 
-  return (
-    <ul className="properties">
-      {properties}
-    </ul>
-  );
+  render() {
+    const properties = this.props.data.map((property) => {
+        return <Property title={property.attributes.title}
+                         url={property.attributes.url}
+                         id={property.id}
+                         key={property.id}
+                         onDelete={this.deleteProperty.bind(this)} />;
+      }
+    );
+
+    return (
+      <ul className="properties">
+        {properties}
+      </ul>
+    );
+  }
 }
 
 PropertyList.propTypes = {
@@ -26,6 +34,7 @@ PropertyList.propTypes = {
       url: React.PropTypes.string.isRequired,
     }),
   })),
+  deleteProperty: React.PropTypes.func.isRequired,
 };
 
 export default PropertyList;
