@@ -23,6 +23,14 @@ class Property extends Component {
     });
   }
 
+  onEditSubmit = (title, url) => {
+    this.props.onEditSubmit(
+      this.props.id,
+      this.props.title,
+      this.props.url
+    );
+  }
+
   onDelete() {
     this.props.onDelete(this.props.id);
   }
@@ -33,7 +41,10 @@ class Property extends Component {
         {
           this.state.isEditing
           ?
-          <PropertyEditForm title={this.props.title} url={this.props.url} onCancelClick={this.toggleIsEditing} />
+          <PropertyEditForm title={this.props.title}
+                            url={this.props.url}
+                            onCancelClick={this.toggleIsEditing}
+                            onEditSubmit={this.onEditSubmit} />
           :
           <div className="properties__wrapper">
             <h3 className="properties__name">{this.props.title}</h3>
@@ -52,6 +63,7 @@ Property.propTypes = {
   title: React.PropTypes.string.isRequired,
   url: React.PropTypes.string.isRequired,
   onDelete: React.PropTypes.func.isRequired,
+  onEditSubmit: React.PropTypes.func.isRequired,
 };
 
 export default Property;

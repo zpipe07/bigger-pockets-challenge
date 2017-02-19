@@ -9,13 +9,18 @@ class PropertyList extends Component {
     this.props.deleteProperty(id);
   }
 
+  onEditSubmit = (id, title, url) => {
+    this.props.onEditSubmit(id, title, url);
+  }
+
   render() {
     const properties = this.props.data.map((property) => {
         return <Property title={property.attributes.title}
                          url={property.attributes.url}
                          id={property.id}
                          key={property.id}
-                         onDelete={this.deleteProperty.bind(this)} />;
+                         onDelete={this.deleteProperty.bind(this)}
+                         onEditSubmit={this.onEditSubmit} />;
       }
     );
 
@@ -37,6 +42,7 @@ PropertyList.propTypes = {
     }),
   })),
   deleteProperty: React.PropTypes.func.isRequired,
+  onEditSubmit: React.PropTypes.func.isRequired,
 };
 
 export default PropertyList;

@@ -81,13 +81,34 @@ class App extends Component {
       });
   }
 
+  onEditSubmit = (id, title, url) => {
+    const data = {
+      data: {
+        attributes: {
+          title,
+          url,
+        },
+      }
+    };
+
+    axiosInstance.put(`/api/v1/listings/${id}`, JSON.stringify(data))
+      .then((response) => {
+        debugger;
+      })
+      .catch((error) => {
+        debugger;
+      });
+    // onEditSubmit
+  }
+
   render() {
     return (
       <div className="app">
         <h1 className="app__title">Listings</h1>
         <AddPropertyForm onSubmit={this.postNewProperty} />
         <PropertyList data={this.state.properties}
-                      deleteProperty={this.deleteProperty} />
+                      deleteProperty={this.deleteProperty}
+                      onEditSubmit={this.onEditSubmit} />
       </div>
     );
   }
