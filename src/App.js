@@ -6,17 +6,19 @@ import PropertyList from './Components/PropertyList';
 
 import './App.css';
 
-const baseURL = 'http://clientside-api.herokuapp.com'
+const baseURL = 'http://clientside-api.herokuapp.com';
 const authKey = 'd0aed402a00bd1c7188373ba8dd20aab';
-
-const instance = axios.create({
+const axInstance = axios.create({
   baseURL: baseURL,
-  headers: { Authorization: authKey }
+  headers: {
+    Authorization: authKey,
+    'Content-Type': 'application/json',
+  }
 });
 
 class App extends Component {
   componentDidMount() {
-    instance.get('/api/v1/listings')
+    axInstance.get('/api/v1/listings')
       .then((response) => {
         // this.setState({});
       })
@@ -25,11 +27,30 @@ class App extends Component {
       });
   }
 
+  postNewProperty = (title, url) => {
+    const data = {
+      data: {
+        attributes: {
+          title,
+          url,
+        },
+      }
+    };
+
+    axInstance.post('/api/v1/listings', JSON.stringify(data))
+      .then((response) => {
+        //
+      })
+      .catch((error) => {
+        //
+      });
+  }
+
   render() {
     return (
       <div className="app">
         <h1 className="app__title">Listings</h1>
-        <AddPropertyForm />
+        <AddPropertyForm onSubmit={this.postNewProperty} />
         <PropertyList />
       </div>
     );
@@ -42,3 +63,4 @@ export default App;
 //  AddPropertyForm
 //  PropertyList
 //    Property
+//      state: { isEditing: false }

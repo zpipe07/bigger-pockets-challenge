@@ -1,10 +1,29 @@
 import React, { Component } from 'react';
 
 class AddPropertyForm extends Component {
+  onSubmit = (evt) => {
+    evt.preventDefault();
+    this.props.onSubmit(this.name.value, this.url.value);
+  }
+
   render() {
     return (
-      <form className="form">
-        <input type="text"/>
+      <form className="form" onSubmit={this.onSubmit}>
+        <label htmlFor="name">Name</label>
+        <input type="text"
+               onChange={this.onNameChange}
+               ref={(input) => this.name = input}
+               id="name"
+               className="form__input" />
+
+        <label htmlFor="url">URL</label>
+        <input type="url"
+               onChange={this.onUrlChange}
+               ref={(input) => this.url = input}
+               id="url"
+               className="form__input" />
+
+        <button type="submit">Enter</button>
       </form>
     );
   }
