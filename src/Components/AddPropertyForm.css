@@ -1,7 +1,7 @@
 .add-form {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .add-form__input-wrapper {
@@ -58,7 +58,7 @@
   .add-form__input-wrapper {
     flex: 1 1 40%;
     margin: 0;
-    padding-right: 0.5rem;
+    padding-right: 0.25rem;
   }
 
   .add-form__submit {
