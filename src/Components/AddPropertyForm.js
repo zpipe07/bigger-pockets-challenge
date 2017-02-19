@@ -11,6 +11,7 @@ class AddPropertyForm extends Component {
   onSubmit = (evt) => {
     evt.preventDefault();
     this.props.onSubmit(this.name.value, this.url.value);
+    evt.currentTarget.reset();
   }
 
   render() {
