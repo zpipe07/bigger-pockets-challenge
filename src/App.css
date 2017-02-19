@@ -8,6 +8,7 @@ html {
 
 body {
   background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .app {
@@ -17,5 +18,6 @@ body {
 }
 
 .app__title {
-  margin: 0 0 4rem;
+  margin: 0 0 3rem;
+  text-align: center;
 }
