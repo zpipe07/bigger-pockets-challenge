@@ -9,4 +9,9 @@ const Property = (props) => {
   );
 }
 
+Property.propTypes = {
+  title: React.PropTypes.string.isRequired,
+  url: React.PropTypes.string.isRequired,
+};
+
 export default Property;

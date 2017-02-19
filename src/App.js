@@ -8,7 +8,7 @@ import './App.css';
 
 const baseURL = 'http://clientside-api.herokuapp.com';
 const authKey = 'd0aed402a00bd1c7188373ba8dd20aab';
-const axInstance = axios.create({
+const axiosInstance = axios.create({
   baseURL: baseURL,
   headers: {
     Authorization: authKey,
@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axInstance.get('/api/v1/listings')
+    axiosInstance.get('/api/v1/listings')
       .then((response) => {
         this.setState({
           properties: response.data.data,
@@ -51,7 +51,7 @@ class App extends Component {
       }
     };
 
-    axInstance.post('/api/v1/listings', JSON.stringify(data))
+    axiosInstance.post('/api/v1/listings', JSON.stringify(data))
       .then((response) => {
         let properties = this.state.properties;
         properties.push(response.data.data);
