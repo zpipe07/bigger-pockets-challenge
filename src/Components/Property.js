@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import PropertyEditForm from './PropertyEditForm';
+
 import './Property.css';
 
 class Property extends Component {
@@ -15,7 +17,7 @@ class Property extends Component {
     this.editButton.focus();
   }
 
-  toggleIsEditing(isEditing) {
+  toggleIsEditing = (isEditing) => {
     this.setState({
       isEditing,
     });
@@ -31,17 +33,7 @@ class Property extends Component {
         {
           this.state.isEditing
           ?
-          <form className="properties__wrapper">
-            <input type="text"
-                   value={this.props.title}
-                   className="properties__name" />
-            <input type="url"
-                   value={this.props.url}
-                   className="properties__url" />
-            <button type="submit">Okey Doke</button>
-            <button type="button"
-                    onClick={this.toggleIsEditing.bind(this, false)}>Cancel</button>
-          </form>
+          <PropertyEditForm title={this.props.title} url={this.props.url} onCancelClick={this.toggleIsEditing} />
           :
           <div className="properties__wrapper">
             <h3 className="properties__name">{this.props.title}</h3>
