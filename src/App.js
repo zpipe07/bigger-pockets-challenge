@@ -17,10 +17,19 @@ const axInstance = axios.create({
 });
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      properties: [],
+    };
+  }
+
   componentDidMount() {
     axInstance.get('/api/v1/listings')
       .then((response) => {
-        // this.setState({});
+        this.setState({
+          properties: response.data.data,
+        });
       })
       .catch((error) => {
         console.log('Error fetching and parsing data', error);
@@ -51,7 +60,7 @@ class App extends Component {
       <div className="app">
         <h1 className="app__title">Listings</h1>
         <AddPropertyForm onSubmit={this.postNewProperty} />
-        <PropertyList />
+        <PropertyList data={this.state.properties} />
       </div>
     );
   }
