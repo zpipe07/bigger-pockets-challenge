@@ -19,11 +19,11 @@ const PropertyList = (props) => {
 
 PropertyList.propTypes = {
   data: React.PropTypes.arrayOf(React.PropTypes.shape({
-    id: React.PropTypes.string,
-    type: React.PropTypes.string,
+    id: React.PropTypes.string.isRequired,
+    type: React.PropTypes.string.isRequired,
     attributes: React.PropTypes.shape({
-      title: React.PropTypes.string,
-      url: React.PropTypes.string,
+      title: React.PropTypes.string.isRequired,
+      url: React.PropTypes.string.isRequired,
     }),
   })),
 };

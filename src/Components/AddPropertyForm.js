@@ -36,4 +36,8 @@ class AddPropertyForm extends Component {
   }
 }
 
+AddPropertyForm.propTypes = {
+  onSubmit: React.PropTypes.func.isRequired,
+};
+
 export default AddPropertyForm;
