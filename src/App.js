@@ -37,7 +37,7 @@ class App extends Component {
   }
 
   /**
-   * Make POST request to API
+   * Make POST request to new property API
    * @param {string} title - property name
    * @param {string} url   - property URL
    */
