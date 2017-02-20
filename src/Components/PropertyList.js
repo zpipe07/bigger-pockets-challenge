@@ -17,6 +17,7 @@ class PropertyList extends Component {
   addProperty(property) {
     let properties = this.state.properties;
     properties.push(property);
+
     this.setState({
       properties,
     });
@@ -26,6 +27,7 @@ class PropertyList extends Component {
     const properties = this.state.properties.filter((property) => {
       return property.id !== id;
     });
+
     this.setState({
       properties,
     });
@@ -43,6 +45,11 @@ class PropertyList extends Component {
     const properties = this.state.properties;
     const index = utils.findWithAttr(properties, 'id', property.id);
     properties[index] = property;
+
+    this[property.id].setState({
+      isEditing: false,
+    });
+
     this.setState({
       properties,
     });
@@ -58,7 +65,8 @@ class PropertyList extends Component {
                     id={property.id}
                     key={property.id}
                     onDelete={this.deleteProperty.bind(this)}
-                    onEditSubmit={this.onEditSubmit} />
+                    onEditSubmit={this.onEditSubmit}
+                    ref={(input) => this[property.id] = input} />
         );
       });
     }
