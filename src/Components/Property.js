@@ -11,6 +11,7 @@ class Property extends Component {
     super(props);
     this.state = {
       isEditing: false,
+      isDeleted: false,
     };
   }
 
@@ -34,7 +35,7 @@ class Property extends Component {
 
   render() {
     return (
-      <li className="properties__item">
+      <li className={"properties__item " + (this.state.isDeleted ? "properties__item--deleted" : "")}>
         {
           this.state.isEditing
           ?

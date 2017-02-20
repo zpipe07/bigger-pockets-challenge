@@ -26,13 +26,19 @@ class PropertyList extends Component {
   }
 
   removeProperty(id) {
-    const properties = this.state.properties.filter((property) => {
-      return property.id !== id;
+    this[id].setState({
+      isDeleted: true,
     });
 
-    this.setState({
-      properties,
-    });
+    setTimeout(() => {
+      const properties = this.state.properties.filter((property) => {
+        return property.id !== id;
+      });
+
+      this.setState({
+        properties,
+      });
+    }, 200);
   }
 
   deleteProperty(id) {
