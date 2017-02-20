@@ -6,12 +6,6 @@ import './Property.css';
 
 class Property extends Component {
 
-  // state = {
-  //   title: this.props.title,
-  //   url: this.props.url,
-  //   id: this.props.id,
-  //   isEditing: false,
-  // }
   constructor(props) {
     super(props);
     this.state = {
@@ -53,11 +47,16 @@ class Property extends Component {
                             onEditSubmit={this.onEditSubmit} />
           :
           <div className="properties__wrapper">
+
             <h3 className="properties__name">{this.props.title}</h3>
+
             <h4 className="properties__url">{this.props.url}</h4>
+
             <button onClick={this.toggleIsEditing.bind(this, true)}
                     ref={(input) => this.editButton = input}>Edit</button>
+
             <button onClick={this.onDelete.bind(this)}>Delete</button>
+
           </div>
         }
       </li>

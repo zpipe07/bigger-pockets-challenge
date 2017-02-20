@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 
 class PropertyEditForm extends Component {
 
-  // state = {
-  //   title: this.props.title,
-  //   url: this.props.url,
-  // }
   constructor(props) {
     super(props);
     this.state = {
@@ -41,19 +37,24 @@ class PropertyEditForm extends Component {
     return (
       <form onSubmit={this.onEditSubmit.bind(this)}
             className="properties__wrapper">
+
         <input type="text"
                onChange={this.onTitleChange.bind(this)}
                value={this.state.title}
                ref={(input) => this.titleInput = input}
                className="properties__name" />
+
         <input type="text"
                onChange={this.onUrlChange.bind(this)}
                value={this.state.url}
                ref={(input) => this.urlInput = input}
                className="properties__url" />
+
         <button type="submit">OK</button>
+
         <button type="button"
                 onClick={this.onCancelClick.bind(this, false)}>Cancel</button>
+
       </form>
     );
   }

@@ -86,11 +86,15 @@ class App extends Component {
   render() {
     return (
       <div className="app">
+
         <h1 className="app__title">Listings</h1>
+
         <AddPropertyForm onSubmit={this.postNewProperty} />
+
         <PropertyList deleteProperty={this.deleteProperty}
                       onEditSubmit={this.onEditSubmit}
                       ref="PropertyList" />
+
       </div>
     );
   }

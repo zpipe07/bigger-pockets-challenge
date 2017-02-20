@@ -65,7 +65,9 @@ class PropertyList extends Component {
 
     return (
       <ul className="properties__list">
+
         {properties ? properties : <p>No properties...</p>}
+
       </ul>
     );
   }
