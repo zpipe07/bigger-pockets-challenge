@@ -19,25 +19,33 @@ class AddPropertyForm extends Component {
   render() {
     return (
       <form className="add-form" onSubmit={this.onSubmit}>
+
         <div className="add-form__input-wrapper">
+
           <input type="text"
                  onChange={this.onNameChange}
                  ref={(input) => this.name = input}
                  id="name"
                  className="add-form__input" required />
+
           <label htmlFor="name" className="add-form__label">Name</label>
+
         </div>
 
         <div className="add-form__input-wrapper">
+
           <input type="text"
                  onChange={this.onUrlChange}
                  ref={(input) => this.url = input}
                  id="url"
                  className="add-form__input" required />
+
           <label htmlFor="url" className="add-form__label">URL</label>
+
         </div>
 
         <button type="submit" className="add-form__submit">Enter</button>
+
       </form>
     );
   }
