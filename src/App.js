@@ -18,17 +18,10 @@ const axiosInstance = axios.create({
 
 class App extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      properties: [],
-    };
-  }
-
   componentDidMount() {
     axiosInstance.get('/api/v1/listings')
       .then((response) => {
-        this.setState({
+        this.refs.PropertyList.setState({
           properties: response.data.data,
         });
       })
@@ -54,12 +47,7 @@ class App extends Component {
 
     axiosInstance.post('/api/v1/listings', JSON.stringify(data))
       .then((response) => {
-        let properties = this.state.properties;
-        properties.push(response.data.data);
-
-        this.setState({
-          properties,
-        });
+        this.refs.PropertyList.addProperty(response.data.data);
       })
       .catch((error) => {
         console.log('Error posting the data', error);
@@ -69,12 +57,7 @@ class App extends Component {
   deleteProperty = (id) => {
     axiosInstance.delete(`/api/v1/listings/${id}`)
       .then((response) => {
-        let properties = this.state.properties.filter((property) => {
-          return property.id !== id;
-        });
-        this.setState({
-          properties,
-        });
+        this.refs.PropertyList.removeProperty(id);
       })
       .catch((error) => {
         console.log('Error deleting property', error);
@@ -93,12 +76,11 @@ class App extends Component {
 
     axiosInstance.put(`/api/v1/listings/${id}`, JSON.stringify(data))
       .then((response) => {
-        debugger;
+        this.refs.PropertyList.updateProperties(response.data.data);
       })
       .catch((error) => {
-        debugger;
+        console.log('Error updating the property', error);
       });
-    // onEditSubmit
   }
 
   render() {
@@ -106,9 +88,9 @@ class App extends Component {
       <div className="app">
         <h1 className="app__title">Listings</h1>
         <AddPropertyForm onSubmit={this.postNewProperty} />
-        <PropertyList data={this.state.properties}
-                      deleteProperty={this.deleteProperty}
-                      onEditSubmit={this.onEditSubmit} />
+        <PropertyList deleteProperty={this.deleteProperty}
+                      onEditSubmit={this.onEditSubmit}
+                      ref="PropertyList" />
       </div>
     );
   }

@@ -6,11 +6,11 @@ import './Property.css';
 
 class Property extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      isEditing: false,
-    }
+  state = {
+    title: this.props.title,
+    url: this.props.url,
+    id: this.props.id,
+    isEditing: false,
   }
 
   componentDidMount() {
@@ -24,10 +24,15 @@ class Property extends Component {
   }
 
   onEditSubmit = (title, url) => {
+    this.setState({
+      title,
+      url,
+    });
+
     this.props.onEditSubmit(
-      this.props.id,
-      this.props.title,
-      this.props.url
+      this.state.id,
+      title,
+      url
     );
   }
 
@@ -62,6 +67,7 @@ class Property extends Component {
 Property.propTypes = {
   title: React.PropTypes.string.isRequired,
   url: React.PropTypes.string.isRequired,
+  id: React.PropTypes.string.isRequired,
   onDelete: React.PropTypes.func.isRequired,
   onEditSubmit: React.PropTypes.func.isRequired,
 };
