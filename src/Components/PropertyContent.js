@@ -26,10 +26,10 @@ class PropertyContent extends Component {
 
         <button onClick={this.toggleIsEditing.bind(this, true)}
                 ref={(input) => this.editButton = input}
-                className="properties__button">Edit</button>
+                className="properties__button properties__button--primary">Edit</button>
 
         <button onClick={this.onDelete.bind(this)}
-                className="properties__button">Delete</button>
+                className="properties__button properties__button--secondary">Delete</button>
 
       </div>
     );
