@@ -91,14 +91,6 @@ class PropertyList extends Component {
 }
 
 PropertyList.propTypes = {
-  data: React.PropTypes.arrayOf(React.PropTypes.shape({
-    id: React.PropTypes.string.isRequired,
-    type: React.PropTypes.string.isRequired,
-    attributes: React.PropTypes.shape({
-      title: React.PropTypes.string.isRequired,
-      url: React.PropTypes.string.isRequired,
-    }),
-  })),
   deleteProperty: React.PropTypes.func.isRequired,
   onEditSubmit: React.PropTypes.func.isRequired,
 };

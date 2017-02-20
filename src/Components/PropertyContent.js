@@ -36,4 +36,12 @@ class PropertyContent extends Component {
   }
 }
 
+PropertyContent.propTypes = {
+  title: React.PropTypes.string.isRequired,
+  url: React.PropTypes.string.isRequired,
+  isNew: React.PropTypes.bool,
+  toggleIsEditing: React.PropTypes.func.isRequired,
+  onDelete: React.PropTypes.func.isRequired,
+};
+
 export default PropertyContent;

@@ -59,6 +59,7 @@ Property.propTypes = {
   title: React.PropTypes.string.isRequired,
   url: React.PropTypes.string.isRequired,
   id: React.PropTypes.string.isRequired,
+  isNew: React.PropTypes.bool,
   onDelete: React.PropTypes.func.isRequired,
   onEditSubmit: React.PropTypes.func.isRequired,
 };
