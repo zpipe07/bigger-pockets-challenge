@@ -10,6 +10,10 @@ class PropertyEditForm extends Component {
     };
   }
 
+  componentDidMount() {
+    this.titleInput.focus();
+  }
+
   onTitleChange = (evt) => {
     this.setState({
       title: evt.target.value,
