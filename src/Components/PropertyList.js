@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import utils from '../utilities/utils';
 
 import Property from './Property';
 
@@ -38,8 +39,13 @@ class PropertyList extends Component {
     this.props.onEditSubmit(id, title, url);
   }
 
-  updateProperties(property) {
-    // this.
+  updateProperty(property) {
+    const properties = this.state.properties;
+    const index = utils.findWithAttr(properties, 'id', property.id);
+    properties[index] = property;
+    this.setState({
+      properties,
+    });
   }
 
   render() {

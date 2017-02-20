@@ -6,11 +6,17 @@ import './Property.css';
 
 class Property extends Component {
 
-  state = {
-    title: this.props.title,
-    url: this.props.url,
-    id: this.props.id,
-    isEditing: false,
+  // state = {
+  //   title: this.props.title,
+  //   url: this.props.url,
+  //   id: this.props.id,
+  //   isEditing: false,
+  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      isEditing: false,
+    };
   }
 
   componentDidMount() {
@@ -24,13 +30,8 @@ class Property extends Component {
   }
 
   onEditSubmit = (title, url) => {
-    this.setState({
-      title,
-      url,
-    });
-
     this.props.onEditSubmit(
-      this.state.id,
+      this.props.id,
       title,
       url
     );

@@ -76,7 +76,7 @@ class App extends Component {
 
     axiosInstance.put(`/api/v1/listings/${id}`, JSON.stringify(data))
       .then((response) => {
-        this.refs.PropertyList.updateProperties(response.data.data);
+        this.refs.PropertyList.updateProperty(response.data.data);
       })
       .catch((error) => {
         console.log('Error updating the property', error);

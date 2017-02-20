@@ -2,9 +2,16 @@ import React, { Component } from 'react';
 
 class PropertyEditForm extends Component {
 
-  state = {
-    title: this.props.title,
-    url: this.props.url,
+  // state = {
+  //   title: this.props.title,
+  //   url: this.props.url,
+  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: this.props.title,
+      url: this.props.url,
+    };
   }
 
   onTitleChange = (evt) => {
