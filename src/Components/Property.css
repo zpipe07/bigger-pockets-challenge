@@ -22,24 +22,33 @@
   border-radius: 0.25rem;
 }
 
-.properties__name {
-  font-size: 1.5rem;
+.properties__text,
+.properties__input {
   padding: 0.25rem;
-  margin: 0 0 1rem;
+  margin: 0 0 0.5rem;
   font-weight: bold;
   display: block;
   width: 100%;
   color: rgba(0,0,0,0.6);
+  border-radius: 0.25rem;
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+
+.properties__text {
+  border: 1px solid transparent;
+}
+
+.properties__input {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.properties__name {
+  font-size: 1.25rem;
 }
 
 .properties__url {
   font-size: 1rem;
-  padding: 0.25rem;
-  margin: 0 0 1rem;
-  font-weight: normal;
-  display: block;
-  width: 100%;
-  color: rgba(0,0,0,0.6);
 }
 
 @media (min-width: 500px) {
