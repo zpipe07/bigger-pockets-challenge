@@ -20,14 +20,16 @@ class PropertyContent extends Component {
     return (
       <div className="properties__wrapper">
 
-        <h3 className="properties__text properties__name">{this.props.title}</h3>
+        <h3 className="properties__text properties__title">{this.props.title}</h3>
 
         <h4 className="properties__text properties__url">{this.props.url}</h4>
 
         <button onClick={this.toggleIsEditing.bind(this, true)}
-                ref={(input) => this.editButton = input}>Edit</button>
+                ref={(input) => this.editButton = input}
+                className="properties__button">Edit</button>
 
-        <button onClick={this.onDelete.bind(this)}>Delete</button>
+        <button onClick={this.onDelete.bind(this)}
+                className="properties__button">Delete</button>
 
       </div>
     );

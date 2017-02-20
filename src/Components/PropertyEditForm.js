@@ -46,7 +46,7 @@ class PropertyEditForm extends Component {
                onChange={this.onTitleChange.bind(this)}
                value={this.state.title}
                ref={(input) => this.titleInput = input}
-               className="properties__input properties__name" />
+               className="properties__input properties__title" />
 
         <input type="text"
                onChange={this.onUrlChange.bind(this)}
@@ -54,10 +54,11 @@ class PropertyEditForm extends Component {
                ref={(input) => this.urlInput = input}
                className="properties__input properties__url" />
 
-        <button type="submit">OK</button>
+        <button type="submit" className="properties__button">OK</button>
 
         <button type="button"
-                onClick={this.onCancelClick.bind(this, false)}>Cancel</button>
+                onClick={this.onCancelClick.bind(this, false)}
+                className="properties__button">Cancel</button>
 
       </form>
     );
