@@ -54,11 +54,12 @@ class PropertyEditForm extends Component {
                ref={(input) => this.urlInput = input}
                className="properties__input properties__url" />
 
-        <button type="submit" className="properties__button">OK</button>
+        <button type="submit"
+                className="properties__button properties__button--primary">OK</button>
 
         <button type="button"
                 onClick={this.onCancelClick.bind(this, false)}
-                className="properties__button">Cancel</button>
+                className="properties__button properties__button--secondary">Cancel</button>
 
       </form>
     );
