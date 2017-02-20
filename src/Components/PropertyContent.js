@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 class PropertyContent extends Component {
 
   componentDidMount() {
-    this.editButton.focus();
+    if (this.props.isNew) {
+      this.editButton.focus();
+    }
   }
 
   onDelete() {

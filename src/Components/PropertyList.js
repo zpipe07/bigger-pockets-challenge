@@ -16,7 +16,9 @@ class PropertyList extends Component {
 
   addProperty(property) {
     let properties = this.state.properties;
-    properties.push(property);
+    properties.push(
+      Object.assign(property, { isNew: true })
+    );
 
     this.setState({
       properties,
@@ -64,6 +66,7 @@ class PropertyList extends Component {
                     url={property.attributes.url}
                     id={property.id}
                     key={property.id}
+                    isNew={property.isNew}
                     onDelete={this.deleteProperty.bind(this)}
                     onEditSubmit={this.onEditSubmit}
                     ref={(input) => this[property.id] = input} />

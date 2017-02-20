@@ -45,6 +45,7 @@ class Property extends Component {
           :
           <PropertyContent title={this.props.title}
                            url={this.props.url}
+                           isNew={this.props.isNew}
                            toggleIsEditing={this.toggleIsEditing}
                            onDelete={this.onDelete.bind(this)} />
         }
