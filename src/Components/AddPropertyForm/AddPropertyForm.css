@@ -36,11 +36,6 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
-.add-form__input:disabled,
-.add-form__submit:disabled {
-  opacity: 0.75;
-}
-
 .add-form__submit {
   flex: 1 0 100%;
   font-size: 1rem;

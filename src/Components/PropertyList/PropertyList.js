@@ -78,11 +78,9 @@ class PropertyList extends Component {
   updateProperty(property) {
     const properties = this.state.properties;
     const index = utils.findWithAttr(properties, 'id', property.id);
-    properties[index] = property;
 
-    this[property.id].setState({
-      isEditing: false,
-    });
+    this[property.id].onSuccessPropertyUpdate();
+    properties[index] = property;
 
     this.setState({
       properties,

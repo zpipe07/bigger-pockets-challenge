@@ -33,6 +33,13 @@ class Property extends Component {
     this.props.onDeleteProperty(this.props.id);
   }
 
+  onSuccessPropertyUpdate() {
+    this.propertyEditForm.onSuccessPropertyUpdate();
+    this.setState({
+      isEditing: false,
+    });
+  }
+
   render() {
     return (
       <li className={"properties__item " + (this.state.isDeleted ? "properties__item--deleted" : "")}>
@@ -42,7 +49,8 @@ class Property extends Component {
           <PropertyEditForm title={this.props.title}
                             url={this.props.url}
                             onCancelClick={this.toggleIsEditing}
-                            onEditSubmit={this.onEditSubmit} />
+                            onEditSubmit={this.onEditSubmit}
+                            ref={(input) => this.propertyEditForm = input} />
           :
           <PropertyContent title={this.props.title}
                            url={this.props.url}
