@@ -26,12 +26,19 @@
   border-radius: 0.25rem;
   color: rgba(0,0,0,0.7);
   border: 1px solid rgba(0, 0, 0, 0.3);
+  transition: opacity 0.1s linear;
 }
 
 .add-form__input:valid + .add-form__label,
-.add-form__input:focus + .add-form__label {
+.add-form__input:focus + .add-form__label,
+.add-form__input:disabled + .add-form__label {
   transform: translateY(-2.5rem) scale(0.9);
   color: rgba(0, 0, 0, 0.6);
+}
+
+.add-form__input:disabled,
+.add-form__submit:disabled {
+  opacity: 0.75;
 }
 
 .add-form__submit {

@@ -7,26 +7,46 @@ import './AddPropertyForm.css';
  */
 class AddPropertyForm extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: false,
+    };
+  }
+
   /**
    * onNewPropertySubmit event handler
    * @param  {event} evt
    */
   onNewPropertySubmit = (evt) => {
     evt.preventDefault();
+    this.setState({
+      isLoading: true,
+    });
     this.props.onNewPropertySubmit(this.title.value, this.url.value);
-    evt.currentTarget.reset();
+  }
+
+  onNewPropertySubmitSuccess() {
+    this.form.reset();
+    this.setState({
+      isLoading: false,
+    });
   }
 
   render() {
     return (
-      <form className="add-form" onSubmit={this.onNewPropertySubmit}>
+      <form className="add-form"
+            onSubmit={this.onNewPropertySubmit}
+            ref={(input) => this.form = input}>
 
         <div className="add-form__input-wrapper">
 
           <input type="text"
                  ref={(input) => this.title = input}
                  id="title"
-                 className="add-form__input" required />
+                 className="add-form__input"
+                 disabled={this.state.isLoading}
+                 required />
 
           <label htmlFor="title" className="add-form__label">Name</label>
 
@@ -37,13 +57,17 @@ class AddPropertyForm extends Component {
           <input type="text"
                  ref={(input) => this.url = input}
                  id="url"
-                 className="add-form__input" required />
+                 className="add-form__input"
+                 disabled={this.state.isLoading}
+                 required />
 
           <label htmlFor="url" className="add-form__label">URL</label>
 
         </div>
 
-        <button type="submit" className="add-form__submit">Enter</button>
+        <button type="submit"
+                className="add-form__submit"
+                disabled={this.state.isLoading}>Enter</button>
 
       </form>
     );

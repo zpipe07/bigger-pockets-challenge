@@ -48,6 +48,7 @@ class App extends Component {
     axiosInstance.post('/api/v1/listings', JSON.stringify(data))
       .then((response) => {
         this.refs.PropertyList.addProperty(response.data.data);
+        this.refs.AddPropertyForm.onNewPropertySubmitSuccess();
       })
       .catch((error) => {
         console.log('Error posting the data', error);
@@ -89,7 +90,8 @@ class App extends Component {
 
         <h1 className="app__title">Listings</h1>
 
-        <AddPropertyForm onNewPropertySubmit={this.onNewPropertySubmit} />
+        <AddPropertyForm onNewPropertySubmit={this.onNewPropertySubmit}
+                         ref="AddPropertyForm" />
 
         <PropertyList onDeleteProperty={this.onDeleteProperty}
                       onEditSubmit={this.onEditSubmit}
