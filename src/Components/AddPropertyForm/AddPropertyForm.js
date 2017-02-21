@@ -10,15 +10,15 @@ class AddPropertyForm extends Component {
    * Form submit handler
    * @param  {event} evt
    */
-  onSubmit = (evt) => {
+  onNewPropertySubmit = (evt) => {
     evt.preventDefault();
-    this.props.onSubmit(this.name.value, this.url.value);
+    this.props.onNewPropertySubmit(this.name.value, this.url.value);
     evt.currentTarget.reset();
   }
 
   render() {
     return (
-      <form className="add-form" onSubmit={this.onSubmit}>
+      <form className="add-form" onSubmit={this.onNewPropertySubmit}>
 
         <div className="add-form__input-wrapper">
 
@@ -52,7 +52,7 @@ class AddPropertyForm extends Component {
 }
 
 AddPropertyForm.propTypes = {
-  onSubmit: React.PropTypes.func.isRequired,
+  onNewPropertySubmit: React.PropTypes.func.isRequired,
 };
 
 export default AddPropertyForm;

@@ -13,7 +13,7 @@ const axiosInstance = axios.create({
   headers: {
     Authorization: authKey,
     'Content-Type': 'application/json',
-  }
+  },
 });
 
 class App extends Component {
@@ -35,7 +35,7 @@ class App extends Component {
    * @param {string} title - property name
    * @param {string} url   - property URL
    */
-  postNewProperty = (title, url) => {
+  onNewPropertySubmit = (title, url) => {
     const data = {
       data: {
         attributes: {
@@ -54,7 +54,7 @@ class App extends Component {
       });
   }
 
-  deleteProperty = (id) => {
+  onDeleteProperty = (id) => {
     axiosInstance.delete(`/api/v1/listings/${id}`)
       .then((response) => {
         this.refs.PropertyList.removeProperty(id);
@@ -89,9 +89,9 @@ class App extends Component {
 
         <h1 className="app__title">Listings</h1>
 
-        <AddPropertyForm onSubmit={this.postNewProperty} />
+        <AddPropertyForm onNewPropertySubmit={this.onNewPropertySubmit} />
 
-        <PropertyList deleteProperty={this.deleteProperty}
+        <PropertyList onDeleteProperty={this.onDeleteProperty}
                       onEditSubmit={this.onEditSubmit}
                       ref="PropertyList" />
 

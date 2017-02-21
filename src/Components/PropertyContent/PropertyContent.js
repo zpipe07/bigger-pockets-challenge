@@ -8,8 +8,8 @@ class PropertyContent extends Component {
     }
   }
 
-  onDelete() {
-    this.props.onDelete();
+  onDeleteProperty() {
+    this.props.onDeleteProperty();
   }
 
   toggleIsEditing(isEditing) {
@@ -32,7 +32,7 @@ class PropertyContent extends Component {
             <i className="fa fa-pencil properties__icon" aria-hidden="true"></i>
           </button>
 
-          <button onClick={this.onDelete.bind(this)}
+          <button onClick={this.onDeleteProperty.bind(this)}
                   className="properties__button properties__button--secondary">
             <i className="fa fa-trash properties__icon"
                aria-hidden="true"></i>
@@ -50,7 +50,7 @@ PropertyContent.propTypes = {
   url: React.PropTypes.string.isRequired,
   isNew: React.PropTypes.bool,
   toggleIsEditing: React.PropTypes.func.isRequired,
-  onDelete: React.PropTypes.func.isRequired,
+  onDeleteProperty: React.PropTypes.func.isRequired,
 };
 
 export default PropertyContent;

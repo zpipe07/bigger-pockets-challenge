@@ -43,8 +43,8 @@ class PropertyList extends Component {
     }, 200);
   }
 
-  deleteProperty(id) {
-    this.props.deleteProperty(id);
+  onDeleteProperty(id) {
+    this.props.onDeleteProperty(id);
   }
 
   onEditSubmit = (id, title, url) => {
@@ -76,7 +76,7 @@ class PropertyList extends Component {
                       id={property.id}
                       key={property.id}
                       isNew={property.isNew}
-                      onDelete={this.deleteProperty.bind(this)}
+                      onDeleteProperty={this.onDeleteProperty.bind(this)}
                       onEditSubmit={this.onEditSubmit}
                       ref={(input) => this[property.id] = input} />
           );
@@ -97,7 +97,7 @@ class PropertyList extends Component {
 }
 
 PropertyList.propTypes = {
-  deleteProperty: React.PropTypes.func.isRequired,
+  onDeleteProperty: React.PropTypes.func.isRequired,
   onEditSubmit: React.PropTypes.func.isRequired,
 };
 

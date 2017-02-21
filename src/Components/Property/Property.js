@@ -29,8 +29,8 @@ class Property extends Component {
     );
   }
 
-  onDelete() {
-    this.props.onDelete(this.props.id);
+  onDeleteProperty() {
+    this.props.onDeleteProperty(this.props.id);
   }
 
   render() {
@@ -48,7 +48,7 @@ class Property extends Component {
                            url={this.props.url}
                            isNew={this.props.isNew}
                            toggleIsEditing={this.toggleIsEditing}
-                           onDelete={this.onDelete.bind(this)} />
+                           onDeleteProperty={this.onDeleteProperty.bind(this)} />
         }
       </li>
     );
@@ -60,7 +60,7 @@ Property.propTypes = {
   url: React.PropTypes.string.isRequired,
   id: React.PropTypes.string.isRequired,
   isNew: React.PropTypes.bool,
-  onDelete: React.PropTypes.func.isRequired,
+  onDeleteProperty: React.PropTypes.func.isRequired,
   onEditSubmit: React.PropTypes.func.isRequired,
 };
 
