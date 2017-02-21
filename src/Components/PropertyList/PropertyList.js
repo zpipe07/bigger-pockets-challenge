@@ -3,6 +3,7 @@ import utils from '../../utilities/utils';
 
 import Property from '../Property/Property';
 import LoadingProperties from '../LoadingProperties/LoadingProperties';
+import EmptyProperties from '../EmptyProperties/EmptyProperties';
 
 import './PropertyList.css';
 
@@ -67,18 +68,22 @@ class PropertyList extends Component {
   render() {
     let properties;
     if (this.state.properties) {
-      properties = this.state.properties.map((property) => {
-        return (
-          <Property title={property.attributes.title}
-                    url={property.attributes.url}
-                    id={property.id}
-                    key={property.id}
-                    isNew={property.isNew}
-                    onDelete={this.deleteProperty.bind(this)}
-                    onEditSubmit={this.onEditSubmit}
-                    ref={(input) => this[property.id] = input} />
-        );
-      });
+      if (this.state.properties.length > 0) {
+        properties = this.state.properties.map((property) => {
+          return (
+            <Property title={property.attributes.title}
+                      url={property.attributes.url}
+                      id={property.id}
+                      key={property.id}
+                      isNew={property.isNew}
+                      onDelete={this.deleteProperty.bind(this)}
+                      onEditSubmit={this.onEditSubmit}
+                      ref={(input) => this[property.id] = input} />
+          );
+        });
+      } else {
+        properties = <EmptyProperties />
+      }
     }
 
     return (
