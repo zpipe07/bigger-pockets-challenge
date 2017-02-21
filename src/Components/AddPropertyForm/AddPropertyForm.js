@@ -6,13 +6,14 @@ import './AddPropertyForm.css';
  * @class A form for adding a new property
  */
 class AddPropertyForm extends Component {
+
   /**
-   * Form submit handler
+   * onNewPropertySubmit event handler
    * @param  {event} evt
    */
   onNewPropertySubmit = (evt) => {
     evt.preventDefault();
-    this.props.onNewPropertySubmit(this.name.value, this.url.value);
+    this.props.onNewPropertySubmit(this.title.value, this.url.value);
     evt.currentTarget.reset();
   }
 
@@ -23,19 +24,17 @@ class AddPropertyForm extends Component {
         <div className="add-form__input-wrapper">
 
           <input type="text"
-                 onChange={this.onNameChange}
-                 ref={(input) => this.name = input}
-                 id="name"
+                 ref={(input) => this.title = input}
+                 id="title"
                  className="add-form__input" required />
 
-          <label htmlFor="name" className="add-form__label">Name</label>
+          <label htmlFor="title" className="add-form__label">Name</label>
 
         </div>
 
         <div className="add-form__input-wrapper">
 
           <input type="text"
-                 onChange={this.onUrlChange}
                  ref={(input) => this.url = input}
                  id="url"
                  className="add-form__input" required />

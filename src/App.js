@@ -32,7 +32,7 @@ class App extends Component {
 
   /**
    * Make POST request to new property API
-   * @param {string} title - property name
+   * @param {string} title - property title
    * @param {string} url   - property URL
    */
   onNewPropertySubmit = (title, url) => {
