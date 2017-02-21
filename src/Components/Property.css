@@ -71,33 +71,33 @@
   word-break: break-all;
 }
 
+.properties__button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .properties__button {
   border: none;
   border-radius: 0.25rem;
   padding: 0.25rem 0.5rem;
   font-size: 0.75rem;
-  margin-right: 0.5rem;
   cursor: pointer;
-}
-
-.properties__button--primary {
-  background-color: #1d96f4;
-  color: #FFFFFF;
+  color: #1d96f4;
+  background-color: transparent;
   transition: opacity 0.1s linear;
 }
 
-.properties__button--primary:hover {
-  opacity: 0.8;
+.properties__button:hover {
+  opacity: 0.75;
 }
 
 .properties__button--secondary {
-  color: #1d96f4;
-  background-color: transparent;
-  transition: background-color 0.1s linear;
+  color: #ED6A5A;
+  margin-left: 0.5rem;
 }
 
-.properties__button--secondary:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+.properties__icon {
+  font-size: 1.25rem;
 }
 
 @media (min-width: 500px) {

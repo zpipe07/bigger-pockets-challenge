@@ -24,12 +24,21 @@ class PropertyContent extends Component {
 
         <h4 className="properties__text properties__url">{this.props.url}</h4>
 
-        <button onClick={this.toggleIsEditing.bind(this, true)}
-                ref={(input) => this.editButton = input}
-                className="properties__button properties__button--primary">Edit</button>
+        <div className="properties__button-wrapper">
 
-        <button onClick={this.onDelete.bind(this)}
-                className="properties__button properties__button--secondary">Delete</button>
+          <button onClick={this.toggleIsEditing.bind(this, true)}
+                  ref={(input) => this.editButton = input}
+                  className="properties__button">
+            <i className="fa fa-pencil properties__icon" aria-hidden="true"></i>
+          </button>
+
+          <button onClick={this.onDelete.bind(this)}
+                  className="properties__button properties__button--secondary">
+            <i className="fa fa-trash properties__icon"
+               aria-hidden="true"></i>
+          </button>
+
+        </div>
 
       </div>
     );
