@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import PropertyEditForm from './PropertyEditForm';
-import PropertyContent from './PropertyContent';
+import PropertyEditForm from '../PropertyEditForm/PropertyEditForm';
+import PropertyContent from '../PropertyContent/PropertyContent';
 
 import './Property.css';
 

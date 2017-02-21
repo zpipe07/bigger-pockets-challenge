@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import AddPropertyForm from './Components/AddPropertyForm';
-import PropertyList from './Components/PropertyList';
+import AddPropertyForm from './Components/AddPropertyForm/AddPropertyForm';
+import PropertyList from './Components/PropertyList/PropertyList';
 
 import './App.css';
 

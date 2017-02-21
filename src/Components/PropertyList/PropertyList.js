@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import utils from '../utilities/utils';
+import utils from '../../utilities/utils';
 
-import Property from './Property';
+import Property from '../Property/Property';
 
 import './PropertyList.css';
 
