@@ -1,0 +1,9 @@
+.loading__wrapper {
+  width: 100%;
+  text-align: center;
+}
+
+.loading__icon {
+  color: rgba(0,0,0,0.3);
+  font-size: 3rem;
+}

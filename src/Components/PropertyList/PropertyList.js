@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import utils from '../../utilities/utils';
 
 import Property from '../Property/Property';
+import LoadingProperties from '../LoadingProperties/LoadingProperties';
 
 import './PropertyList.css';
 
@@ -83,7 +84,7 @@ class PropertyList extends Component {
     return (
       <ul className="properties__list">
 
-        {properties ? properties : <p>No properties...</p>}
+        {properties ? properties : <LoadingProperties />}
 
       </ul>
     );
