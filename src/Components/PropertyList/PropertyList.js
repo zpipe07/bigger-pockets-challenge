@@ -16,8 +16,31 @@ class PropertyList extends Component {
     }
   }
 
+  /**
+   * onDeleteProperty event handler
+   * @param {string} id - property id
+   */
+  onDeleteProperty(id) {
+    this.props.onDeleteProperty(id);
+  }
+
+  /**
+   * onEditSubmit event handler
+   * @param {string} id    - property id
+   * @param {string} title - property title
+   * @param {string} url   - property url
+   */
+  onEditSubmit = (id, title, url) => {
+    this.props.onEditSubmit(id, title, url);
+  }
+
+  /**
+   * Add a property to properties
+   * @param {object} property - a property object
+   */
   addProperty(property) {
     let properties = this.state.properties;
+
     properties.push(
       Object.assign(property, { isNew: true })
     );
@@ -27,11 +50,16 @@ class PropertyList extends Component {
     });
   }
 
+  /**
+   * Remove a property from properties
+   * @param  {string} id - property id
+   */
   removeProperty(id) {
     this[id].setState({
       isDeleted: true,
     });
 
+    // use setTimeout to allow CSS transition to complete
     setTimeout(() => {
       const properties = this.state.properties.filter((property) => {
         return property.id !== id;
@@ -43,14 +71,10 @@ class PropertyList extends Component {
     }, 200);
   }
 
-  onDeleteProperty(id) {
-    this.props.onDeleteProperty(id);
-  }
-
-  onEditSubmit = (id, title, url) => {
-    this.props.onEditSubmit(id, title, url);
-  }
-
+  /**
+   * Update a property in properties
+   * @param  {object} property - property object
+   */
   updateProperty(property) {
     const properties = this.state.properties;
     const index = utils.findWithAttr(properties, 'id', property.id);
@@ -67,6 +91,7 @@ class PropertyList extends Component {
 
   render() {
     let properties;
+
     if (this.state.properties) {
       if (this.state.properties.length > 0) {
         properties = this.state.properties.map((property) => {
