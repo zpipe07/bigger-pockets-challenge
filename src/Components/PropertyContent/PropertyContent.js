@@ -30,12 +30,14 @@ class PropertyContent extends Component {
                   ref={(input) => this.editButton = input}
                   className="properties__button">
             <i className="fa fa-pencil properties__icon" aria-hidden="true"></i>
+            <span className="screen-reader">Edit</span>
           </button>
 
           <button onClick={this.onDeleteProperty.bind(this)}
                   className="properties__button properties__button--secondary">
             <i className="fa fa-trash properties__icon"
                aria-hidden="true"></i>
+            <span className="screen-reader">Delete</span>
           </button>
 
         </div>

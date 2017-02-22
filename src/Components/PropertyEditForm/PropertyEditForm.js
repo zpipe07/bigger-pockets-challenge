@@ -70,14 +70,15 @@ class PropertyEditForm extends Component {
                   className="properties__button"
                   disabled={this.state.isLoading}>
             <i className="fa fa-check properties__icon" aria-hidden="true"></i>
+            <span className="screen-reader">Submit</span>
           </button>
 
           <button type="button"
                   onClick={this.onCancelClick.bind(this, false)}
                   className="properties__button properties__button--secondary"
                   disabled={this.state.isLoading}>
-            <i className="fa fa-times properties__icon"
-               aria-hidden="true"></i>
+            <i className="fa fa-times properties__icon" aria-hidden="true"></i>
+            <span className="screen-reader">Cancel</span>
           </button>
 
         </div>
