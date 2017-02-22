@@ -9,13 +9,16 @@ import './App.css';
 const baseURL = 'http://clientside-api.herokuapp.com';
 const authKey = 'd0aed402a00bd1c7188373ba8dd20aab';
 const axiosInstance = axios.create({
-  baseURL: baseURL,
+  baseURL,
   headers: {
     Authorization: authKey,
     'Content-Type': 'application/json',
   },
 });
 
+/**
+ * @class Main application
+ */
 class App extends Component {
 
   componentDidMount() {
@@ -55,6 +58,10 @@ class App extends Component {
       });
   }
 
+  /**
+   * onDeleteProperty event handler
+   * @param {string} id - property id
+   */
   onDeleteProperty = (id) => {
     axiosInstance.delete(`/api/v1/listings/${id}`)
       .then((response) => {
@@ -65,6 +72,12 @@ class App extends Component {
       });
   }
 
+  /**
+   * onEditSubmit event handler
+   * @param  {string} id    - property id
+   * @param  {string} title - property title
+   * @param  {string} url   - property url
+   */
   onEditSubmit = (id, title, url) => {
     const data = {
       data: {
