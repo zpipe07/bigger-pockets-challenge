@@ -7,6 +7,9 @@ import EmptyProperties from '../EmptyProperties/EmptyProperties';
 
 import './PropertyList.css';
 
+/**
+ * @class List of properties
+ */
 class PropertyList extends Component {
 
   constructor(props) {
@@ -52,7 +55,7 @@ class PropertyList extends Component {
 
   /**
    * Remove a property from properties
-   * @param  {string} id - property id
+   * @param {string} id - property id
    */
   removeProperty(id) {
     this[id].setState({
@@ -73,7 +76,7 @@ class PropertyList extends Component {
 
   /**
    * Update a property in properties
-   * @param  {object} property - property object
+   * @param {object} property - property object
    */
   updateProperty(property) {
     const properties = this.state.properties;
@@ -90,6 +93,7 @@ class PropertyList extends Component {
   render() {
     let properties;
 
+    // this.state.properties is undefined until initial GET request resolves
     if (this.state.properties) {
       if (this.state.properties.length > 0) {
         properties = this.state.properties.map((property) => {
