@@ -59,7 +59,8 @@ class PropertyEditForm extends Component {
                ref={(input) => this.titleInput = input}
                className="properties__input properties__title"
                disabled={this.state.isLoading}
-               id="nameEdit" />
+               id="nameEdit"
+               required />
 
         <label className="screen-reader"
                htmlFor="urlEdit">URL</label>
@@ -70,7 +71,8 @@ class PropertyEditForm extends Component {
                ref={(input) => this.urlInput = input}
                className="properties__input properties__url"
                disabled={this.state.isLoading}
-               id="urlEdit" />
+               id="urlEdit"
+               required />
 
         <div className="properties__button-wrapper">
 
