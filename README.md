@@ -42,7 +42,7 @@ button the focus is transferred to the edit form for obvious reasons.
 
 # JavaScript
 I enjoyed using React.js. I like how it handles application state. In my
-implementation I hold the state that is returned from the data base in the
+implementation I hold the state that is returned from the database in the
 ProperyList component: here I handle adding, editing, and deleting individual
 Property components. I handle state that is specific to each property down in
 the actual Property components: things like if the property is being edited or
