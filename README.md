@@ -1,6 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-
 [Live site here](http://zackpiper.com/bigger-pockets-challenge/).
+
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ```
 # To run the app locally
@@ -40,12 +40,14 @@ the property for visual confirmation.
 The next focus control occurs when editing a property. After clicking the edit
 button the focus is transferred to the edit form for obvious reasons.
 
+# JavaScript
+
+# CSS
+The app is responsive. I prefer to develop with a mobile-first approach. I use
+the [BEM naming convention](http://getbem.com/introduction/).
+
 # To-Dos
 - Unit tests. I was unfamiliar with the Jest testing environment and thus
   neglected to write any tests. Shame on me.
 - Error handling. I don't currently have any sort of error alerting for the
   user. Errors simply print a message to the console.
-
-# CSS
-The app is responsive. I prefer to develop with a mobile-first approach. I use
-the [BEM naming convention](http://getbem.com/introduction/).

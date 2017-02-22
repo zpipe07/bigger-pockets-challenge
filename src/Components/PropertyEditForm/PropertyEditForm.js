@@ -15,22 +15,39 @@ class PropertyEditForm extends Component {
     this.titleInput.focus();
   }
 
+  /**
+   * onTitleChange event handler
+   * @param  {event} evt
+   */
   onTitleChange = (evt) => {
     this.setState({
       title: evt.target.value,
     });
   }
 
+  /**
+   * onUrlChange event handler
+   * @param  {event} evt
+   */
   onUrlChange = (evt) => {
     this.setState({
       url: evt.target.value,
     });
   }
 
-  onCancelClick() {
+  /**
+   * onCancelClick event handler
+   * @return {[type]} [description]
+   */
+  onCancelClick(evt) {
+    evt.preventDefault();
     this.props.onCancelClick(false);
   }
 
+  /**
+   * onEditSubmit event handler
+   * @param  {event} evt
+   */
   onEditSubmit(evt) {
     evt.preventDefault();
     const title = this.state.title.trim();
@@ -44,6 +61,9 @@ class PropertyEditForm extends Component {
     }
   }
 
+  /**
+   * onSuccessPropertyUpdate event handler. called from parent
+   */
   onSuccessPropertyUpdate() {
     this.setState({
       isLoading: false,
