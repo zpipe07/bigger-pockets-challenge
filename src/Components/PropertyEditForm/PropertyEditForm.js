@@ -50,19 +50,27 @@ class PropertyEditForm extends Component {
       <form onSubmit={this.onEditSubmit.bind(this)}
             className="properties__wrapper">
 
+        <label className="screen-reader"
+               htmlFor="nameEdit">Name</label>
+
         <input type="text"
                onChange={this.onTitleChange.bind(this)}
                value={this.state.title}
                ref={(input) => this.titleInput = input}
                className="properties__input properties__title"
-               disabled={this.state.isLoading} />
+               disabled={this.state.isLoading}
+               id="nameEdit" />
+
+        <label className="screen-reader"
+               htmlFor="urlEdit">URL</label>
 
         <input type="text"
                onChange={this.onUrlChange.bind(this)}
                value={this.state.url}
                ref={(input) => this.urlInput = input}
                className="properties__input properties__url"
-               disabled={this.state.isLoading} />
+               disabled={this.state.isLoading}
+               id="urlEdit" />
 
         <div className="properties__button-wrapper">
 
