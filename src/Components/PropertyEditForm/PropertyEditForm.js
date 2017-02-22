@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+/**
+ * @class Property edit form
+ */
 class PropertyEditForm extends Component {
 
   constructor(props) {
