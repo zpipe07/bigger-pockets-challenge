@@ -47,4 +47,5 @@ button the focus is transferred to the edit form for obvious reasons.
   user. Errors simply print a message to the console.
 
 # CSS
-I use the [BEM naming convention](http://getbem.com/introduction/).
+The app is responsive. I prefer to develop with a mobile-first approach. I use
+the [BEM naming convention](http://getbem.com/introduction/).
