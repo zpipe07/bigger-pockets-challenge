@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+/**
+ * @class A property's static content
+ */
 class PropertyContent extends Component {
 
   componentDidMount() {
@@ -8,10 +11,17 @@ class PropertyContent extends Component {
     }
   }
 
+  /**
+   * onDeleteProperty event handler
+   */
   onDeleteProperty() {
     this.props.onDeleteProperty();
   }
 
+  /**
+   * toggleIsEditing event handler
+   * @param {Boolean} isEditing - true if editing
+   */
   toggleIsEditing(isEditing) {
     this.props.toggleIsEditing(isEditing);
   }
