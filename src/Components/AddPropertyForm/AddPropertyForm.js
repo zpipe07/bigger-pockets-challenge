@@ -16,7 +16,7 @@ class AddPropertyForm extends Component {
 
   /**
    * onNewPropertySubmit event handler
-   * @param  {event} evt
+   * @param {event} evt
    */
   onNewPropertySubmit = (evt) => {
     evt.preventDefault();
@@ -31,6 +31,9 @@ class AddPropertyForm extends Component {
     }
   }
 
+  /**
+   * onNewPropertySubmitSuccess event handler. called from parent
+   */
   onNewPropertySubmitSuccess() {
     this.form.reset();
     this.setState({
