@@ -2,6 +2,10 @@ import React from 'react';
 
 import './LoadingProperties.css';
 
+/**
+ * Display an animated loader on initial render
+ * @return {JSX} Animated loader
+ */
 const LoadingProperties = () => {
   return (
     <div className="loading__wrapper">
