@@ -112,7 +112,7 @@ class PropertyEditForm extends Component {
           </button>
 
           <button type="button"
-                  onClick={this.onCancelClick.bind(this, false)}
+                  onClick={this.onCancelClick.bind(this)}
                   className="properties__button properties__button--secondary"
                   disabled={this.state.isLoading}>
             <i className="fa fa-times properties__icon" aria-hidden="true"></i>

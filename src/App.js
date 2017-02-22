@@ -39,16 +39,9 @@ class App extends Component {
    * @param {string} url   - property URL
    */
   onNewPropertySubmit = (title, url) => {
-    const data = {
-      data: {
-        attributes: {
-          title,
-          url,
-        },
-      }
-    };
+    const jsonData = JSON.stringify(this.buildDataObject(title, url));
 
-    axiosInstance.post('/api/v1/listings', JSON.stringify(data))
+    axiosInstance.post('/api/v1/listings', jsonData)
       .then((response) => {
         this.refs.PropertyList.addProperty(response.data.data);
         this.refs.AddPropertyForm.onNewPropertySubmitSuccess();
@@ -79,22 +72,32 @@ class App extends Component {
    * @param  {string} url   - property url
    */
   onEditSubmit = (id, title, url) => {
-    const data = {
-      data: {
-        attributes: {
-          title,
-          url,
-        },
-      }
-    };
+    const jsonData = JSON.stringify(this.buildDataObject(title, url));
 
-    axiosInstance.put(`/api/v1/listings/${id}`, JSON.stringify(data))
+    axiosInstance.put(`/api/v1/listings/${id}`, jsonData)
       .then((response) => {
         this.refs.PropertyList.updateProperty(response.data.data);
       })
       .catch((error) => {
         console.log('Error updating the property', error);
       });
+  }
+
+  /**
+   * Build the data object for PUT and POST requests
+   * @param  {string} title - property title
+   * @param  {string} url   - property url
+   * @return {object}       - data object
+   */
+  buildDataObject(title, url) {
+    return {
+      data: {
+        attributes: {
+          title,
+          url,
+        },
+      },
+    };
   }
 
   render() {
