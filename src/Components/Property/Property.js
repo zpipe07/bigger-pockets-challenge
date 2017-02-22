@@ -5,6 +5,9 @@ import PropertyContent from '../PropertyContent/PropertyContent';
 
 import './Property.css';
 
+/**
+ * @class A property/listing item
+ */
 class Property extends Component {
 
   constructor(props) {
@@ -15,12 +18,21 @@ class Property extends Component {
     };
   }
 
+  /**
+   * Toggle isEditing state
+   * @param {Boolean} isEditing - true if editing
+   */
   toggleIsEditing = (isEditing) => {
     this.setState({
       isEditing,
     });
   }
 
+  /**
+   * onEditSubmit event handler
+   * @param  {string} title - property title
+   * @param  {[type]} url   - property url
+   */
   onEditSubmit = (title, url) => {
     this.props.onEditSubmit(
       this.props.id,
@@ -29,10 +41,16 @@ class Property extends Component {
     );
   }
 
+  /**
+   * onDeleteProperty event handler
+   */
   onDeleteProperty() {
     this.props.onDeleteProperty(this.props.id);
   }
 
+  /**
+   * onSuccessPropertyUpdate event handler. called from parent
+   */
   onSuccessPropertyUpdate() {
     this.propertyEditForm.onSuccessPropertyUpdate();
     this.setState({
