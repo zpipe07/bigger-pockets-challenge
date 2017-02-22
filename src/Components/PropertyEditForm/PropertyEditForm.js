@@ -33,10 +33,15 @@ class PropertyEditForm extends Component {
 
   onEditSubmit(evt) {
     evt.preventDefault();
-    this.setState({
-      isLoading: true,
-    });
-    this.props.onEditSubmit(this.state.title, this.state.url);
+    const title = this.state.title.trim();
+    const url = this.state.url.trim();
+
+    if (title && url) {
+      this.setState({
+        isLoading: true,
+      });
+      this.props.onEditSubmit(title, url);
+    }
   }
 
   onSuccessPropertyUpdate() {

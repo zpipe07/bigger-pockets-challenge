@@ -20,10 +20,15 @@ class AddPropertyForm extends Component {
    */
   onNewPropertySubmit = (evt) => {
     evt.preventDefault();
-    this.setState({
-      isLoading: true,
-    });
-    this.props.onNewPropertySubmit(this.title.value, this.url.value);
+    const title = this.title.value.trim();
+    const url = this.url.value.trim();
+
+    if (title && url) {
+      this.setState({
+        isLoading: true,
+      });
+      this.props.onNewPropertySubmit(title, url);
+    }
   }
 
   onNewPropertySubmitSuccess() {
