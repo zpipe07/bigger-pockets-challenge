@@ -1,4 +1,4 @@
-[Live site here](http://zackpiper.com/bigger-pockets-challenge/).
+[Live site here](http://zackpiper.com/bookmarks-react/).
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
